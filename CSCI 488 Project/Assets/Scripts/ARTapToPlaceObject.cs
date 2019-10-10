@@ -66,15 +66,6 @@ public class ARTapToPlaceObject : MonoBehaviour
 
         /// Update the placement reticle game object's position.
         UpdatePlacementIndicator();
-
-        /// If the placement pose is valid and the user taps the screen, 
-        /// place a new objectToPlace object.
-        if (_placementPoseIsValid
-            && Input.touchCount > 0
-            && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            PlaceObject(objectToPlace);
-        }
     }
 
     /// <summary>
@@ -130,10 +121,15 @@ public class ARTapToPlaceObject : MonoBehaviour
     /// PlaceObject is used to create a new object at the placement reticle.
     /// </summary>
     /// <param name="gameObject">The object to be placed.</param>
-    private void PlaceObject(GameObject gameObject)
+    public void PlaceObject(GameObject gameObject)
     {
-        /// Create a new game object at the placement reticle.
-        Instantiate(gameObject,
-            _placementPose.position, _placementPose.rotation);
+        /// If the placement pose is valid and the user taps the screen, 
+        /// place a new objectToPlace object.
+        if (_placementPoseIsValid)
+        {
+            /// Create a new game object at the placement reticle.
+            Instantiate(gameObject,
+                _placementPose.position, _placementPose.rotation);
+        }
     }
 }
