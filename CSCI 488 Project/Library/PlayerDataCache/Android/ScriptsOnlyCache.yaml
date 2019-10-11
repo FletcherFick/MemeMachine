@@ -18,6 +18,7 @@ ScriptsOnlyBuild:
     - UnityEngine.SpatialTracking.TrackedPoseDriver
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
@@ -77,17 +78,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11112}
     - Class: 114
-      Script: {instanceID: 11180}
+      Script: {instanceID: 11172}
     - Class: 114
-      Script: {instanceID: 11204}
+      Script: {instanceID: 11182}
     - Class: 114
-      Script: {instanceID: 11364}
+      Script: {instanceID: 11206}
     - Class: 114
-      Script: {instanceID: 11492}
+      Script: {instanceID: 11366}
     - Class: 114
-      Script: {instanceID: 11574}
+      Script: {instanceID: 11494}
     - Class: 114
-      Script: {instanceID: 13824}
+      Script: {instanceID: 11538}
+    - Class: 114
+      Script: {instanceID: 11576}
+    - Class: 114
+      Script: {instanceID: 14820}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -461,7 +466,7 @@ ScriptsOnlyBuild:
     className: ARCameraManager
   - hash:
       serializedVersion: 2
-      Hash: 56c8564483b6016f1d57a3b6be47cbdf
+      Hash: b8594280e036609d07fc8f1cec94ae3e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ARTapToPlaceObject
@@ -483,6 +488,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AudioTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlaceObjectButton
   - hash:
       serializedVersion: 2
       Hash: ae83e830e7a90c0aff918c4c2e520825
@@ -621,12 +632,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlaceObjectButton
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
