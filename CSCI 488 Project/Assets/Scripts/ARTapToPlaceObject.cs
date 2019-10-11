@@ -45,6 +45,27 @@ public class ARTapToPlaceObject : MonoBehaviour
     /// </value>
     private bool _placementPoseIsValid = false;
 
+    /// <summary>_rotationSpeed is how fast the placement reticle rotates.</summary>
+    /// <value>
+    /// _rotationSpeed is used to set how fast the placement indicator rotates;
+    /// the higher the value, the faster the rotation.
+    /// </value>
+    private float _rotationSpeed = 100.0f;
+
+    /// <summary>rotationPointerDown determines if a rotate button is down.</summary>
+    /// <value>
+    /// rotationPointerDown is used to determine if either the left or right
+    /// object rotation buttons are being pressed.
+    /// </value>
+    public bool rotationPointerDown;
+
+    /// <summary>rotationDirection determines how to rotate the reticle.</summary>
+    /// <value>
+    /// rotationDirection is used to determine which direction to rotate
+    /// the placement reticle; true is right, false is left.
+    /// </value>
+    public bool rotationDirection;
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
@@ -54,6 +75,9 @@ public class ARTapToPlaceObject : MonoBehaviour
         /// Connect _arRaycastManager to the AR Session Origin's raycast manager.
         _arRaycastManager = FindObjectOfType<ARSessionOrigin>().
             GetComponent<ARRaycastManager>();
+
+        /// Set the initial rotation for the placement reticle.
+        placementIndicator.transform.rotation = Quaternion.Euler(Vector3.forward);
     }
 
     /// <summary>
@@ -66,6 +90,12 @@ public class ARTapToPlaceObject : MonoBehaviour
 
         /// Update the placement reticle game object's position.
         UpdatePlacementIndicator();
+
+        /// If a rotation button is being pushed, rotate the placement reticle.
+        if (rotationPointerDown)
+        {
+            RotatePlacementIndicator(rotationDirection);
+        }
     }
 
     /// <summary>
@@ -106,9 +136,8 @@ public class ARTapToPlaceObject : MonoBehaviour
             /// Display the placement reticle.
             placementIndicator.SetActive(true);
 
-            /// Update the placement reticle's position and rotation.
-            placementIndicator.transform.SetPositionAndRotation(
-                _placementPose.position, _placementPose.rotation);
+            /// Update the placement reticle's position.
+            placementIndicator.transform.position = _placementPose.position;
         }
         else
         {
@@ -129,7 +158,57 @@ public class ARTapToPlaceObject : MonoBehaviour
         {
             /// Create a new game object at the placement reticle.
             Instantiate(gameObject,
-                _placementPose.position, _placementPose.rotation);
+                _placementPose.position, 
+                placementIndicator.transform.rotation);
         }
+    }
+
+    /// <summary>
+    /// RotatePlacementIndicator is used to rotate the placement indicator.
+    /// </summary>
+    /// <param name="direction">The direction to rotate the indicator.</param>
+    public void RotatePlacementIndicator(bool direction)
+    {
+        /// Only rotate the indicator if it is being displayed.
+        if (_placementPoseIsValid)
+        {
+            /// Determine the direction to rotate the indicator in.
+            Vector3 rotationDirection = direction ? Vector3.up : -Vector3.up;
+
+            /// Rotate the reticle based on the above direction and rotation speed.
+            placementIndicator.transform.Rotate(rotationDirection * _rotationSpeed * Time.deltaTime);
+        }
+    }
+
+    /// <summary>
+    /// OnRotatePointerDown is used to indicate a rotation button is being pushed.
+    /// </summary>
+    public void OnRotatePointerDown()
+    {
+        rotationPointerDown = true;
+    }
+
+    /// <summary>
+    /// OnRotatePointerUp is used to indicate a rotation button has been released.
+    /// </summary>
+    public void OnRotatePointerUp()
+    {
+        rotationPointerDown = false;
+    }
+
+    /// <summary>
+    /// RotateIndicatorRight is used to set rotationDirection to true.
+    /// </summary>
+    public void RotateIndicatorRight()
+    {
+        rotationDirection = true;
+    }
+
+    /// <summary>
+    /// RotateIndicatorLeft is used to set rotationDirection to false.
+    /// </summary>
+    public void RotateIndicatorLeft()
+    {
+        rotationDirection = false;
     }
 }
