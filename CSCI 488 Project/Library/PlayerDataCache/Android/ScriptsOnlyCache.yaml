@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - ARTapToPlaceObject
+    - ButtonHandler
     - PlaceObjectButton
     Unity.XR.ARFoundation.dll:
     - UnityEngine.XR.ARFoundation.ARCameraBackground
@@ -92,7 +93,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11576}
     - Class: 114
-      Script: {instanceID: 14820}
+      Script: {instanceID: 13000}
+    - Class: 114
+      Script: {instanceID: 16018}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -466,7 +469,7 @@ ScriptsOnlyBuild:
     className: ARCameraManager
   - hash:
       serializedVersion: 2
-      Hash: b8594280e036609d07fc8f1cec94ae3e
+      Hash: 56c8564483b6016f1d57a3b6be47cbdf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ARTapToPlaceObject
@@ -632,6 +635,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: ef464a792968d27301ddcc5c6e8899fc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ButtonHandler
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

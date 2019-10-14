@@ -29,7 +29,7 @@ public class PlaceObjectButton : MonoBehaviour
     void Start()
     {
         /// Connect interactionManager to the Interaction Manager game object.
-        interactionManager = GameObject.Find("Interaction Manager");
+        interactionManager = GameObject.Find("Interaction Handler");
 
         /// Connect scriptReference to the ARTapToPlace script on interactionManager.
         scriptReference = interactionManager.GetComponent<ARTapToPlaceObject>();

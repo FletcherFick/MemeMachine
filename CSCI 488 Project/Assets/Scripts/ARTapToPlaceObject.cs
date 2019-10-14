@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using UnityEngine.UI;
 using System;
 
 /// <summary>
@@ -57,14 +58,14 @@ public class ARTapToPlaceObject : MonoBehaviour
     /// rotationPointerDown is used to determine if either the left or right
     /// object rotation buttons are being pressed.
     /// </value>
-    public bool rotationPointerDown;
+    private bool _rotationPointerDown;
 
     /// <summary>rotationDirection determines how to rotate the reticle.</summary>
     /// <value>
     /// rotationDirection is used to determine which direction to rotate
     /// the placement reticle; true is right, false is left.
     /// </value>
-    public bool rotationDirection;
+    private bool _rotationDirection;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -92,9 +93,9 @@ public class ARTapToPlaceObject : MonoBehaviour
         UpdatePlacementIndicator();
 
         /// If a rotation button is being pushed, rotate the placement reticle.
-        if (rotationPointerDown)
+        if (_rotationPointerDown)
         {
-            RotatePlacementIndicator(rotationDirection);
+            RotatePlacementIndicator(_rotationDirection);
         }
     }
 
@@ -185,7 +186,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     /// </summary>
     public void OnRotatePointerDown()
     {
-        rotationPointerDown = true;
+        _rotationPointerDown = true;
     }
 
     /// <summary>
@@ -193,7 +194,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     /// </summary>
     public void OnRotatePointerUp()
     {
-        rotationPointerDown = false;
+        _rotationPointerDown = false;
     }
 
     /// <summary>
@@ -201,7 +202,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     /// </summary>
     public void RotateIndicatorRight()
     {
-        rotationDirection = true;
+        _rotationDirection = true;
     }
 
     /// <summary>
@@ -209,6 +210,14 @@ public class ARTapToPlaceObject : MonoBehaviour
     /// </summary>
     public void RotateIndicatorLeft()
     {
-        rotationDirection = false;
+        _rotationDirection = false;
+    }
+
+    /// <summary>
+    /// GetPlacementValidity is for use by other classes to get _placementPoseIsValid.
+    /// </summary>
+    public bool GetPlacementValidity()
+    {
+        return _placementPoseIsValid;
     }
 }
