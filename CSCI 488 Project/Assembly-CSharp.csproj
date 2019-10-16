@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\ARTapToPlaceObject.cs" />
      <Compile Include="Assets\Scripts\ButtonHandler.cs" />
+     <Compile Include="Assets\Scripts\DisplayModel.cs" />
      <Compile Include="Assets\Scripts\PlaceObjectButton.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/riley/Desktop/local-dev/MemeMachine/CSCI 488 Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
