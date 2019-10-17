@@ -13,9 +13,9 @@ public class DisplayModel : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-        /// Obtain the object being used in the ARTapToPlaceObject script.
+        /// Obtain the object being used in the InteractionHandler script.
         GameObject modelToDisplay = GameObject.Find("Interaction Handler")
-            .GetComponent<ARTapToPlaceObject>().objectToPlace;
+            .GetComponent<InteractionHandler>().objectToPlace;
 
         /// Place the object at the Object Display game object.
         GameObject displayedModel = Instantiate(modelToDisplay, 
@@ -26,5 +26,9 @@ public class DisplayModel : MonoBehaviour
         displayedModel.transform.parent = GameObject.Find("Object Display").transform;
         displayedModel.layer = 8;
         displayedModel.transform.GetChild(0).gameObject.layer = 8;
+        foreach (Transform child in displayedModel.transform.GetChild(0))
+        {
+            child.gameObject.layer = 8;
+        }
     }
 }

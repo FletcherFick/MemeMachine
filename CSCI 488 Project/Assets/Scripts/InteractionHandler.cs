@@ -7,10 +7,10 @@ using UnityEngine.UI;
 using System;
 
 /// <summary>
-/// ARTapToPlaceObject is used to allow the player to see the placement
+/// InteractionHandler is used to allow the player to see the placement
 /// reticle and lets them place an object at its position.
 ///</summary>
-public class ARTapToPlaceObject : MonoBehaviour
+public class InteractionHandler : MonoBehaviour
 {
     /// <summary>placementIndicator represents the placement reticle.</summary>
     /// <value>
@@ -44,14 +44,14 @@ public class ARTapToPlaceObject : MonoBehaviour
     /// _placementPoseIsValid is used to determine if the ray being emitted
     /// from the center of the screen is on a flat plane.
     /// </value>
-    private bool _placementPoseIsValid = false;
+    private bool _placementPoseIsValid;
 
     /// <summary>_rotationSpeed is how fast the placement reticle rotates.</summary>
     /// <value>
     /// _rotationSpeed is used to set how fast the placement indicator rotates;
     /// the higher the value, the faster the rotation.
     /// </value>
-    private float _rotationSpeed = 100.0f;
+    private float _rotationSpeed;
 
     /// <summary>rotationPointerDown determines if a rotate button is down.</summary>
     /// <value>
@@ -67,15 +67,44 @@ public class ARTapToPlaceObject : MonoBehaviour
     /// </value>
     private bool _rotationDirection;
 
+    /// <summary>_placedObjectCount tracks the amount of objects placed.</summary>
+    /// <value>
+    /// _placedObjectCount is used to keep track of the amount of objects
+    /// placed in the scene by the user.
+    /// </value>
+    private int _placedObjectCount;
+
+    /// <summary>_placedGameObject refers to the object placed in the scene.</summary>
+    /// <value>
+    /// _placedGameObject is a reference to the game object that the player
+    /// places in the scene and is used to manipulate it.
+    /// </value>
+    private GameObject _placedGameObject;
+
+    /// <summary>_buttonHandler is a reference to ButtonHandler.</summary>
+    /// <value>
+    /// _buttonHandler is used to reference the ButtonHandler script on the 
+    /// Button Handler game object.
+    /// </value>
+    private GameObject _buttonHandler;
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
     /// </summary>
     void Start()
     {
+        /// Setup some variables for later use.
+        _placementPoseIsValid = false;
+        _rotationSpeed = 100.0f;
+        _placedObjectCount = 0;
+
         /// Connect _arRaycastManager to the AR Session Origin's raycast manager.
         _arRaycastManager = FindObjectOfType<ARSessionOrigin>().
             GetComponent<ARRaycastManager>();
+
+        /// Connect _buttonHandler to the ButtonHandler script.
+        _buttonHandler = GameObject.Find("Button Handler");
 
         /// Set the initial rotation for the placement reticle.
         placementIndicator.transform.rotation = Quaternion.Euler(Vector3.forward);
@@ -93,7 +122,7 @@ public class ARTapToPlaceObject : MonoBehaviour
         UpdatePlacementIndicator();
 
         /// If a rotation button is being pushed, rotate the placement reticle.
-        if (_rotationPointerDown)
+        if (_rotationPointerDown && _placedObjectCount == 0)
         {
             RotatePlacementIndicator(_rotationDirection);
         }
@@ -132,7 +161,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     private void UpdatePlacementIndicator()
     {
         /// If the placement reticle's pose is valid, display the reticle.
-        if (_placementPoseIsValid)
+        if (_placementPoseIsValid && _placedObjectCount == 0)
         {
             /// Display the placement reticle.
             placementIndicator.SetActive(true);
@@ -155,12 +184,31 @@ public class ARTapToPlaceObject : MonoBehaviour
     {
         /// If the placement pose is valid and the user taps the screen, 
         /// place a new objectToPlace object.
-        if (_placementPoseIsValid)
+        if (_placementPoseIsValid && _placedObjectCount == 0)
         {
+            _placedObjectCount = 1;
+
             /// Create a new game object at the placement reticle.
-            Instantiate(gameObject,
+            _placedGameObject = Instantiate(gameObject,
                 _placementPose.position, 
                 placementIndicator.transform.rotation);
+        }
+    }
+
+    /// <summary>
+    /// DeletePlacedObject is used to delete the placed object and reset buttons.
+    /// </summary>
+    public void DeletePlacedObject()
+    {
+        /// Destroy the placed object and decrement _placedObjectCount.
+        Destroy(_placedGameObject);
+        _placedObjectCount = 0;
+
+        /// Re-enable the rotation and placement buttons.
+        for (int i = 0; i < 3; i++)
+        {
+            _buttonHandler.GetComponent<ButtonHandler>()
+                .buttons[i].interactable = true;
         }
     }
 
@@ -219,5 +267,13 @@ public class ARTapToPlaceObject : MonoBehaviour
     public bool GetPlacementValidity()
     {
         return _placementPoseIsValid;
+    }
+
+    /// <summary>
+    /// GetPlacedObjectCount is for use by other classes to get _placedObjectCount.
+    /// </summary>
+    public int GetPlacedObjectCount()
+    {
+        return _placedObjectCount;
     }
 }
