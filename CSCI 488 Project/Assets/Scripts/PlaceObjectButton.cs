@@ -15,12 +15,12 @@ public class PlaceObjectButton : MonoBehaviour
     /// </value>
     private GameObject interactionManager;
 
-    /// <summary>scriptReference references the ARTapToPlaceObject script.</summary>
+    /// <summary>scriptReference references the InteractionHandler script.</summary>
     /// <value>
-    /// scriptReference is used to reference the ARTapToPlaceObject script
+    /// scriptReference is used to reference the InteractionHandler script
     /// connected to the Interaction Manager game object.
     /// </value>
-    private ARTapToPlaceObject scriptReference;
+    private InteractionHandler scriptReference;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -32,12 +32,12 @@ public class PlaceObjectButton : MonoBehaviour
         interactionManager = GameObject.Find("Interaction Handler");
 
         /// Connect scriptReference to the ARTapToPlace script on interactionManager.
-        scriptReference = interactionManager.GetComponent<ARTapToPlaceObject>();
+        scriptReference = interactionManager.GetComponent<InteractionHandler>();
     }
 
     /// <summary>
     /// PlaceNewObjeect is called when the Place Object button is clicked, and
-    /// it calls the PlaceObject function in the ARTapToPlaceObject script.
+    /// it calls the PlaceObject function in the InteractionHandler script.
     /// </summary>
     public void PlaceNewObject()
     {
