@@ -99,4 +99,17 @@ public class ButtonHandler : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// ClearObjectPlacementButtons is used to set all buttons involved in the
+    /// object placement process to inactive.
+    /// </summary>
+    public void ClearObjectPlacementButtons()
+    {
+        /// Set the first five buttons in _buttons to inactive.
+        for (int i = 0; i < 5; i++)
+        {
+            buttons[i].gameObject.SetActive(false);
+        }
+    }
 }

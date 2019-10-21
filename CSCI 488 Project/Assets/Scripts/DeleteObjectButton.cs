@@ -10,7 +10,7 @@ public class DeleteObjectButton : MonoBehaviour
 {
     /// <summary>_interactionHandler references Interaction Manager.</summary>
     /// <value>
-    /// _interactionHandler is used to store a referene to the Interaction 
+    /// _interactionHandler is used to store a reference to the Interaction 
     /// Manager game object.
     /// </value>
     private GameObject _interactionHandler;
@@ -31,7 +31,7 @@ public class DeleteObjectButton : MonoBehaviour
         /// Connect _interactionHandler to the Interaction Manager game object.
         _interactionHandler = GameObject.Find("Interaction Handler");
 
-        /// Connect _scriptReference to the ARTapToPlace script on _interactionHandler.
+        /// Connect _scriptReference to the InteractionHandler script on _interactionHandler.
         _scriptReference = _interactionHandler.GetComponent<InteractionHandler>();
     }
 
