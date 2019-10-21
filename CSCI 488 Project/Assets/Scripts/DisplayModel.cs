@@ -26,6 +26,8 @@ public class DisplayModel : MonoBehaviour
         displayedModel.transform.parent = GameObject.Find("Object Display").transform;
         displayedModel.layer = 8;
         displayedModel.transform.GetChild(0).gameObject.layer = 8;
+
+        /// Ensure all parts of the object are set to render.
         foreach (Transform child in displayedModel.transform.GetChild(0))
         {
             child.gameObject.layer = 8;
