@@ -15,12 +15,26 @@ public class StartStoryButton : MonoBehaviour
     /// </value>
     private GameObject _buttonHandler;
 
-    /// <summary>_scriptReference references the ButtonHandler script.</summary>
+    /// <summary>_buttonHandlerScript references the ButtonHandler script.</summary>
     /// <value>
-    /// _scriptReference is used to reference the ButtonHandler script
+    /// _buttonHandlerScript is used to reference the ButtonHandler script
     /// connected to the Button Manager game object.
     /// </value>
-    private ButtonHandler _scriptReference;
+    private ButtonHandler _buttonHandlerScript;
+
+    /// <summary>_passiveSceneHandler references Passive Scene Handler.</summary>
+    /// <value>
+    /// _passiveSceneHandler is used to store a reference to the Passive 
+    /// Scene Handler game object.
+    /// </value>
+    private GameObject _passiveSceneHandler;
+
+    /// <summary>_passiveSceneScript references the PassiveSceneHandler script.</summary>
+    /// <value>
+    /// _passiveSceneScript is used to reference the PassiveSceneHandler script
+    /// connected to the Passive Scene Handler game object.
+    /// </value>
+    private PassiveSceneHandler _passiveSceneScript;
 
     /// <summary>_modelDisplayBackground references the Object Display object.</summary>
     /// <value>
@@ -52,27 +66,49 @@ public class StartStoryButton : MonoBehaviour
         /// Connect _buttonHandler to the Button Manager game object.
         _buttonHandler = GameObject.Find("Button Handler");
 
+        /// Connect _buttonHandlerScript to the ButtonHandler script on _buttonHandler.
+        _buttonHandlerScript = _buttonHandler.GetComponent<ButtonHandler>();
+
+        /// Connect _passiveSceneHandler to the Passive Scene Handler game object.
+        _passiveSceneHandler = GameObject.Find("Passive Scene Handler");
+
+        /// Connect _passiveSceneScript to the PassiveSceneHandler script on _passiveSceneHandler.
+        _passiveSceneScript = _passiveSceneHandler.GetComponent<PassiveSceneHandler>();
+
         /// Create references to the components that render the preview model.
         _modelDisplayBackground = GameObject.Find("Model Display");
         _modelDisplayCamera = GameObject.Find("Object UI Render Camera");
         _modelDisplayRender = GameObject.Find("Object Display");
-
-        /// Connect _scriptReference to the ButtonHandler script on _buttonHandler.
-        _scriptReference = _buttonHandler.GetComponent<ButtonHandler>();
     }
 
     /// <summary>
-    /// StartStory is called when the Start Story button is clicked, and it calls
+    /// SetupStory is called when the Start Story button is clicked, and it calls
     /// the ClearObjectPlacementButtons function in the ButtonHandler script.
     /// </summary>
-    public void StartStory()
+    public void SetupStory()
     {
         /// Make all object placement buttons inactive.
-        _scriptReference.ClearObjectPlacementButtons();
+        _buttonHandlerScript.ClearObjectPlacementButtons();
 
         /// Set all components involved with the preview model to inactive.
         _modelDisplayBackground.SetActive(false);
         _modelDisplayCamera.SetActive(false);
         _modelDisplayRender.SetActive(false);
+
+        /// Start the story.
+        StartCoroutine(BeginStory(10));
+    }
+
+    /// <summary>
+    /// BeginStory is used to call the StartStory method from PassiveSceneHandler.
+    /// </summary>
+    /// <param name="seconds">How long to wait until starting the story.</param>
+    private IEnumerator BeginStory(int seconds)
+    {
+        /// Wait for X seconds.
+        yield return new WaitForSeconds(seconds);
+
+        /// Call the StartStory function.
+        _passiveSceneScript.StartStory();
     }
 }

@@ -19,10 +19,10 @@ public class DisplayModel : MonoBehaviour
 
         /// Place the object at the Object Display game object.
         GameObject displayedModel = Instantiate(modelToDisplay, 
-            transform.position, Quaternion.Euler(-10, -30, 0));
+            transform.position, Quaternion.Euler(5, 160, 0));
         
         /// Modify the object's settings to display appropriately.
-        displayedModel.transform.localScale = new Vector3(5000, 5000, 5000);
+        displayedModel.transform.localScale = new Vector3(500, 500, 500);
         displayedModel.transform.parent = GameObject.Find("Object Display").transform;
         displayedModel.layer = 8;
         displayedModel.transform.GetChild(0).gameObject.layer = 8;
@@ -31,6 +31,11 @@ public class DisplayModel : MonoBehaviour
         foreach (Transform child in displayedModel.transform.GetChild(0))
         {
             child.gameObject.layer = 8;
+
+            foreach (Transform subChild in child)
+            {
+                subChild.gameObject.layer = 8;
+            }
         }
     }
 }
