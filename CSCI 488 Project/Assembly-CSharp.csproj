@@ -53,12 +53,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ButtonHandler.cs" />
-     <Compile Include="Assets\Scripts\DeleteObjectButton.cs" />
-     <Compile Include="Assets\Scripts\DisplayModel.cs" />
-     <Compile Include="Assets\Scripts\InteractionHandler.cs" />
-     <Compile Include="Assets\Scripts\PlaceObjectButton.cs" />
-     <Compile Include="Assets\Scripts\StartStoryButton.cs" />
+     <Compile Include="Assets\Scripts\Main Menu Scripts\MuteButton.cs" />
+     <Compile Include="Assets\Scripts\Main Menu Scripts\PassiveStoryButton.cs" />
+     <Compile Include="Assets\Scripts\Main Menu Scripts\QuitButton.cs" />
+     <Compile Include="Assets\Scripts\Main Menu Scripts\ReturnButton.cs" />
+     <Compile Include="Assets\Scripts\Main Menu Scripts\SelectStoryButton.cs" />
+     <Compile Include="Assets\Scripts\Main Menu Scripts\SettingsButton.cs" />
+     <Compile Include="Assets\Scripts\Main Menu Scripts\SettingsHandler.cs" />
+     <Compile Include="Assets\Scripts\Main Menu Scripts\SubtitlesButton.cs" />
+     <Compile Include="Assets\Scripts\Story Scene Scripts\ButtonHandler.cs" />
+     <Compile Include="Assets\Scripts\Story Scene Scripts\DeleteObjectButton.cs" />
+     <Compile Include="Assets\Scripts\Story Scene Scripts\DialogueButton.cs" />
+     <Compile Include="Assets\Scripts\Story Scene Scripts\DisplayModel.cs" />
+     <Compile Include="Assets\Scripts\Story Scene Scripts\InteractionHandler.cs" />
+     <Compile Include="Assets\Scripts\Story Scene Scripts\MainMenuButton.cs" />
+     <Compile Include="Assets\Scripts\Story Scene Scripts\PassiveSceneHandler.cs" />
+     <Compile Include="Assets\Scripts\Story Scene Scripts\PlaceObjectButton.cs" />
+     <Compile Include="Assets\Scripts\Story Scene Scripts\StartStoryButton.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/riley/Desktop/local-dev/MemeMachine/CSCI 488 Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
