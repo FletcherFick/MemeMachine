@@ -55,8 +55,10 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\ButtonHandler.cs" />
      <Compile Include="Assets\Scripts\DeleteObjectButton.cs" />
+     <Compile Include="Assets\Scripts\DialogueButton.cs" />
      <Compile Include="Assets\Scripts\DisplayModel.cs" />
      <Compile Include="Assets\Scripts\InteractionHandler.cs" />
+     <Compile Include="Assets\Scripts\PassiveSceneHandler.cs" />
      <Compile Include="Assets\Scripts\PlaceObjectButton.cs" />
      <Compile Include="Assets\Scripts\StartStoryButton.cs" />
  <Reference Include="Unity.Timeline.Editor">

@@ -276,4 +276,28 @@ public class InteractionHandler : MonoBehaviour
     {
         return _placedObjectCount;
     }
+
+    /// <summary>
+    /// GetPlacedObjectPosition returns the position of _placedGameObject.
+    /// </summary>
+    public Vector3 GetPlacedObjectPosition()
+    {
+        return _placedGameObject.transform.position;
+    }
+
+    /// <summary>
+    /// GetPlacedObjectRotation returns the rotation of _placedGameObject.
+    /// </summary>
+    public Quaternion GetPlacedObjectRotation()
+    {
+        return _placedGameObject.transform.rotation;
+    }
+
+    /// <summary>
+    /// GetPlacedObjectDirection returns the direction of _placedGameObject.
+    /// </summary>
+    public Vector3 GetPlacedObjectDirection()
+    {
+        return _placedGameObject.transform.forward;
+    }
 }

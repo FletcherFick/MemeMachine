@@ -8,19 +8,19 @@ using UnityEngine.UI;
 /// </summary>
 public class ButtonHandler : MonoBehaviour
 {
-    /// <summary>_interactionHandler is used to reference InteractionHandler.</summary>
-    /// <value>
-    /// _interactionHandler is used to reference the InteractionHandler script
-    /// and call its public methods.
-    /// </value>
-    private InteractionHandler _interactionHandler;
-
     /// <summary>_buttons is used to store references to all UI buttons.</summary>
     /// <value>
     /// _buttons is a list that stores references to all UI buttons related
     /// to the open scene and is used to interact with them.
     /// </value>
     public List<Button> buttons;
+
+    /// <summary>_interactionHandler is used to reference InteractionHandler.</summary>
+    /// <value>
+    /// _interactionHandler is used to reference the InteractionHandler script
+    /// and call its public methods.
+    /// </value>
+    private InteractionHandler _interactionHandler;
 
     /// <summary>_hasDisabledButtons is used to determine if the buttons are disabled.</summary>
     /// <value>
