@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - ButtonHandler
     - DeleteObjectButton
+    - DialogueButton
     - DisplayModel
     - InteractionHandler
     - PassiveSceneHandler
@@ -55,6 +56,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 84
       Script: {instanceID: 0}
     - Class: 89
@@ -106,11 +111,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11502}
     - Class: 114
-      Script: {instanceID: 11546}
+      Script: {instanceID: 11542}
     - Class: 114
-      Script: {instanceID: 11584}
+      Script: {instanceID: 11548}
     - Class: 114
-      Script: {instanceID: 13196}
+      Script: {instanceID: 11586}
+    - Class: 114
+      Script: {instanceID: 13616}
+    - Class: 114
+      Script: {instanceID: 15696}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -618,6 +627,12 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
+      Hash: 9d20f45a4a39a0f387f5018fae00aaf3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PassiveSceneHandler
+  - hash:
+      serializedVersion: 2
       Hash: a63fc1a3b035e5a0b5839cd7f7b3086e
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -678,11 +693,11 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 9d20f45a4a39a0f387f5018fae00aaf3
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: PassiveSceneHandler
+    className: DialogueButton
   platform: 13
   scenePathNames:
   - Assets/Scenes/PassiveScene.unity
-  playerPath: C:/Users/riley/Desktop/temp/CSCI488_Project.apk
+  playerPath: C:/Users/riley/Desktop/local-dev/CSCI 488 Project.apk

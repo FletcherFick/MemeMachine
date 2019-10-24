@@ -8,19 +8,19 @@ using UnityEngine;
 ///</summary>
 public class PlaceObjectButton : MonoBehaviour
 {
-    /// <summary>interactionManager references Interaction Manager.</summary>
+    /// <summary>_interactionHandler references Interaction Manager.</summary>
     /// <value>
-    /// interactionManager is used to store a referene to the Interaction 
+    /// _interactionHandler is used to store a referene to the Interaction 
     /// Manager game object.
     /// </value>
-    private GameObject interactionManager;
+    private GameObject _interactionHandler;
 
-    /// <summary>scriptReference references the InteractionHandler script.</summary>
+    /// <summary>_interactionHandlerScript references the InteractionHandler script.</summary>
     /// <value>
-    /// scriptReference is used to reference the InteractionHandler script
+    /// _interactionHandlerScript is used to reference the InteractionHandler script
     /// connected to the Interaction Manager game object.
     /// </value>
-    private InteractionHandler scriptReference;
+    private InteractionHandler _interactionHandlerScript;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -28,11 +28,11 @@ public class PlaceObjectButton : MonoBehaviour
     /// </summary>
     void Start()
     {
-        /// Connect interactionManager to the Interaction Manager game object.
-        interactionManager = GameObject.Find("Interaction Handler");
+        /// Connect _interactionHandler to the Interaction Manager game object.
+        _interactionHandler = GameObject.Find("Interaction Handler");
 
-        /// Connect scriptReference to the ARTapToPlace script on interactionManager.
-        scriptReference = interactionManager.GetComponent<InteractionHandler>();
+        /// Connect _interactionHandlerScript to the ARTapToPlace script on _interactionHandler.
+        _interactionHandlerScript = _interactionHandler.GetComponent<InteractionHandler>();
     }
 
     /// <summary>
@@ -42,6 +42,6 @@ public class PlaceObjectButton : MonoBehaviour
     public void PlaceNewObject()
     {
         /// Attempt to place the indicated game object.
-        scriptReference.PlaceObject(scriptReference.objectToPlace);
+        _interactionHandlerScript.PlaceObject(_interactionHandlerScript.objectToPlace);
     }
 }
