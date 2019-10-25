@@ -20,6 +20,9 @@ public class SettingsButton : MonoBehaviour
     private GameObject _settingsHandler;
     private SettingsHandler _settingsHandlerScript;
 
+    public GameObject persistentSettings;
+    private PersistentSettings _settingsScript;
+
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -29,6 +32,7 @@ public class SettingsButton : MonoBehaviour
     {
         _settingsHandler = GameObject.Find("Settings Handler");
         _settingsHandlerScript = _settingsHandler.GetComponent<SettingsHandler>();
+        _settingsScript = persistentSettings.GetComponent<PersistentSettings>();
     }
 
     public void OpenSettings()
@@ -42,7 +46,7 @@ public class SettingsButton : MonoBehaviour
         subtitlesButton.gameObject.SetActive(true);
         returnButton.gameObject.SetActive(true);
 
-        if (_settingsHandlerScript._muteAudio)
+        if (_settingsScript.GetMuteStatus())
         {
             audioMutedText.SetActive(true);
             audioUnmutedText.SetActive(false);
@@ -53,7 +57,7 @@ public class SettingsButton : MonoBehaviour
             audioUnmutedText.SetActive(true);
         }
 
-        if (_settingsHandlerScript._enableSubtitles)
+        if (_settingsScript.GetSubtitleStatus())
         {
             subtitlesEnabledText.SetActive(true);
             subtitlesDisabledText.SetActive(false);

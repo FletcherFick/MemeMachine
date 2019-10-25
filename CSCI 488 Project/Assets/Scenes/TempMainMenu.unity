@@ -895,6 +895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subtitlesEnabledText: {fileID: 174624511}
   subtitlesDisabledText: {fileID: 2067451756}
+  persistentSettings: {fileID: 757443789}
 --- !u!1 &446720237
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,8 +1175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muteButton: {fileID: 130852842}
   subtitlesButton: {fileID: 1191409000}
-  _muteAudio: 0
-  _enableSubtitles: 0
+  persistentSettings: {fileID: 757443789}
   _settingsMenuOpen: 0
 --- !u!4 &584799960
 Transform:
@@ -1476,6 +1476,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714114380}
   m_CullTransparentMesh: 0
+--- !u!1 &757443789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 757443791}
+  - component: {fileID: 757443790}
+  m_Layer: 0
+  m_Name: Persistent Settings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &757443790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757443789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c68000ef590974e883936f66f479ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  muteAudio: 0
+  enableSubtitles: 0
+--- !u!4 &757443791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757443789}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &931952744
 GameObject:
   m_ObjectHideFlags: 0
@@ -2879,6 +2924,7 @@ MonoBehaviour:
   audioUnmutedText: {fileID: 684714362}
   subtitlesEnabledText: {fileID: 174624511}
   subtitlesDisabledText: {fileID: 2067451756}
+  persistentSettings: {fileID: 757443789}
 --- !u!4 &1524340647
 Transform:
   m_ObjectHideFlags: 0
@@ -3165,6 +3211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMutedText: {fileID: 2141608012}
   audioUnmutedText: {fileID: 684714362}
+  persistentSettings: {fileID: 757443789}
 --- !u!4 &1769809574
 Transform:
   m_ObjectHideFlags: 0

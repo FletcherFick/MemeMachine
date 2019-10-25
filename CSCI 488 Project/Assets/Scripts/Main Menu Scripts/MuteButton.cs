@@ -10,6 +10,9 @@ public class MuteButton : MonoBehaviour
     public GameObject audioMutedText;
     public GameObject audioUnmutedText;
 
+    public GameObject persistentSettings;
+    private PersistentSettings _settingsScript;
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
@@ -18,19 +21,20 @@ public class MuteButton : MonoBehaviour
     {
         _settingsHandler = GameObject.Find("Settings Handler");
         _settingsHandlerScript = _settingsHandler.GetComponent<SettingsHandler>();
+        _settingsScript = persistentSettings.GetComponent<PersistentSettings>();
     }
 
     public void ChangeMuteSetting()
     {
-        if (_settingsHandlerScript._muteAudio)
+        if (_settingsScript.GetMuteStatus())
         {
-            _settingsHandlerScript._muteAudio = false;
+            _settingsScript.SetMuteStatus(false);
             audioMutedText.gameObject.SetActive(false);
             audioUnmutedText.gameObject.SetActive(true);
         }
         else
         {
-            _settingsHandlerScript._muteAudio = true;
+            _settingsScript.SetMuteStatus(true);
             audioMutedText.gameObject.SetActive(true);
             audioUnmutedText.gameObject.SetActive(false);
         }

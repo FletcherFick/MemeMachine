@@ -1,15 +1,18 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AudioButton
     - ButtonHandler
     - DeleteObjectButton
     - DialogueButton
     - DisplayModel
+    - ExitButton
     - InteractionHandler
     - MainMenuButton
     - MuteButton
     - PassiveSceneHandler
     - PassiveStoryButton
+    - PersistentSettings
     - PlaceObjectButton
     - QuitButton
     - ReturnButton
@@ -28,6 +31,7 @@ ScriptsOnlyBuild:
     - UnityEngine.XR.ARFoundation.ARSessionOrigin
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
+    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.SpatialTracking.dll:
     - UnityEngine.SpatialTracking.TrackedPoseDriver
     UnityEngine.UI.dll:
@@ -129,7 +133,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11606}
     - Class: 114
-      Script: {instanceID: 14258}
+      Script: {instanceID: 13370}
+    - Class: 114
+      Script: {instanceID: 13738}
+    - Class: 114
+      Script: {instanceID: 31190}
+    - Class: 114
+      Script: {instanceID: 33136}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -197,6 +207,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11542}
     - Class: 114
       Script: {instanceID: 11606}
+    - Class: 114
+      Script: {instanceID: 13370}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -412,7 +424,7 @@ ScriptsOnlyBuild:
     className: ARPlane
   - hash:
       serializedVersion: 2
-      Hash: c054ce33e1d037d6862185b4110c7234
+      Hash: 975daa27cf8c12aab7e87308d76e8e59
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SettingsHandler
@@ -454,13 +466,13 @@ ScriptsOnlyBuild:
     className: DeleteObjectButton
   - hash:
       serializedVersion: 2
-      Hash: 5b059067913baeba06c4b850c8d0d818
+      Hash: bf1dab73ec2c867486ec31a535b17da8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SettingsButton
   - hash:
       serializedVersion: 2
-      Hash: 608c92c1922848da4eb3193938a14773
+      Hash: 907173cec1959e798bc33743be03c50a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SubtitlesButton
@@ -496,7 +508,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 4fa775040aac00f4083b9a40eb2f5ca6
+      Hash: b786c6077db36c93de323eb33592410e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MuteButton
@@ -760,7 +772,7 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: 320e5934645da57a0c225a43e281589f
+      Hash: 646fd568af98d7d6d41ee24300f9d811
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PassiveSceneHandler
@@ -824,8 +836,26 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PersistentSettings
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ExitButton
+  - hash:
+      serializedVersion: 2
+      Hash: 9c6dc8d5a49694c8932051f646e893a9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AudioButton
   platform: 13
   scenePathNames:
   - Assets/Scenes/TempMainMenu.unity
   - Assets/Scenes/PassiveScene.unity
-  playerPath: C:/Users/riley/Desktop/local-dev/CSCI 488 Project.apk
+  playerPath: C:/Users/riley/Desktop/temp/CSCI 488 Project.apk

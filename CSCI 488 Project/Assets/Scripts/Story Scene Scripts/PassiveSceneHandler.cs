@@ -93,6 +93,14 @@ public class PassiveSceneHandler : MonoBehaviour
     /// </value>
     private bool _chasePlayer;
 
+    public GameObject subtitles;
+
+    private GameObject _persistentSettings;
+    private PersistentSettings _settingsScript;
+
+    public GameObject muteButton;
+    public GameObject exitButton;
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
@@ -119,6 +127,9 @@ public class PassiveSceneHandler : MonoBehaviour
 
         /// Connect _interactionScript to the ARTapToPlace script on interactionManager.
         _interactionScript = _interactionHandler.GetComponent<InteractionHandler>();
+
+        _persistentSettings = GameObject.Find("Persistent Settings");
+        _settingsScript = _persistentSettings.GetComponent<PersistentSettings>();
     }
 
     /// <summary>
@@ -126,6 +137,15 @@ public class PassiveSceneHandler : MonoBehaviour
     /// </summary>
     void Update()
     {
+        if (_settingsScript.GetMuteStatus())
+        {
+            AudioListener.volume = 0;
+        }
+        else
+        {
+            AudioListener.volume = 1;
+        }
+
         /// Check if the Start Story button has been tapped.
         if (_storyStarted)
         {
@@ -213,6 +233,8 @@ public class PassiveSceneHandler : MonoBehaviour
         {
             /// The monster has reached the player; display the end screen.
             _endScreen.gameObject.SetActive(true);
+            muteButton.SetActive(false);
+            exitButton.SetActive(false);
         }
     }
 
@@ -230,11 +252,21 @@ public class PassiveSceneHandler : MonoBehaviour
     /// </summary>
     private IEnumerator PlayAudioSequence()
     {
+        if (_settingsScript.GetSubtitleStatus())
+        {
+            subtitles.SetActive(true);
+        }
+
         /// Play the monster's audio response and wait for it to finish.
         _audioSource.Play();
         while (_audioSource.isPlaying)
         {
             yield return null;
+        }
+
+        if (subtitles.activeSelf)
+        {
+            subtitles.SetActive(false);
         }
 
         /// Allow the monster to chase the player.

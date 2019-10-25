@@ -8,8 +8,8 @@ public class SettingsHandler : MonoBehaviour
     public GameObject muteButton;
     public GameObject subtitlesButton;
 
-    public bool _muteAudio;
-    public bool _enableSubtitles;
+    public GameObject persistentSettings;
+    private PersistentSettings _settingsScript;
 
     public bool _settingsMenuOpen;
 
@@ -18,9 +18,7 @@ public class SettingsHandler : MonoBehaviour
     /// </summary>
     void Awake()
     {
-        _muteAudio = false;
-        _enableSubtitles = false;
-
+        _settingsScript = persistentSettings.GetComponent<PersistentSettings>();
         _settingsMenuOpen = false;
     }
 
@@ -31,7 +29,7 @@ public class SettingsHandler : MonoBehaviour
     {
         if (_settingsMenuOpen)
         {
-            if (!_muteAudio)
+            if (!_settingsScript.GetMuteStatus())
             {
                 muteButton.GetComponent<Image>().color = Color.red;
             }
@@ -40,7 +38,7 @@ public class SettingsHandler : MonoBehaviour
                 muteButton.GetComponent<Image>().color = Color.green;
             }
 
-            if (!_enableSubtitles)
+            if (!_settingsScript.GetSubtitleStatus())
             {
                 subtitlesButton.GetComponent<Image>().color = Color.red;
             }

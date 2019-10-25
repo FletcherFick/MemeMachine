@@ -10,6 +10,9 @@ public class SubtitlesButton : MonoBehaviour
     public GameObject subtitlesEnabledText;
     public GameObject subtitlesDisabledText;
 
+    public GameObject persistentSettings;
+    private PersistentSettings _settingsScript;
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
@@ -18,19 +21,20 @@ public class SubtitlesButton : MonoBehaviour
     {
         _settingsHandler = GameObject.Find("Settings Handler");
         _settingsHandlerScript = _settingsHandler.GetComponent<SettingsHandler>();
+        _settingsScript = persistentSettings.GetComponent<PersistentSettings>();
     }
 
     public void ChangeSubtitlesSetting()
     {
-        if (_settingsHandlerScript._enableSubtitles)
+        if (_settingsScript.GetSubtitleStatus())
         {
-            _settingsHandlerScript._enableSubtitles = false;
+            _settingsScript.SetSubtitleStatus(false);
             subtitlesDisabledText.SetActive(true);
             subtitlesEnabledText.SetActive(false);
         }
         else
         {
-            _settingsHandlerScript._enableSubtitles = true;
+            _settingsScript.SetSubtitleStatus(true);
             subtitlesDisabledText.SetActive(false);
             subtitlesEnabledText.SetActive(true);
         }
