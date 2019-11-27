@@ -8,6 +8,8 @@ using UnityEngine.UI;
 /// </summary>
 public class ButtonHandler : MonoBehaviour
 {
+    public bool isPassiveScene;
+
     /// <summary>_buttons is used to store references to all UI buttons.</summary>
     /// <value>
     /// _buttons is a list that stores references to all UI buttons related
@@ -41,6 +43,17 @@ public class ButtonHandler : MonoBehaviour
 
         /// Assume no buttons have been disabled.
         _hasDisabledButtons = false;
+
+        if (!isPassiveScene)
+        {
+            buttons[1].gameObject.SetActive(false);
+            buttons[2].gameObject.SetActive(false);
+        }
+        else
+        {
+            buttons[1].gameObject.SetActive(true);
+            buttons[2].gameObject.SetActive(true);
+        }
     }
 
     /// <summary>
@@ -48,54 +61,72 @@ public class ButtonHandler : MonoBehaviour
     /// </summary>
     void Update()
     {
-        /// Check if there is a placed object in the scene.
-        if (_interactionHandler.GetPlacedObjectCount() == 0)
+        if (isPassiveScene)
         {
-            /// Disable the undo and start scene buttons.
-            for (int i = 3; i < 5; i++)
+            /// Check if there is a placed object in the scene.
+            if (_interactionHandler.GetPlacedObjectCount() == 0)
             {
-                buttons[i].interactable = false;
-            }
-
-            /// Check if the placement pose of the placement indicator is valid.
-            if (!_interactionHandler.GetPlacementValidity())
-            {
-                /// The pose is not valid; adjust all UI placement buttons.
-                for (int i = 0; i < 3; i++)
+                /// Disable the undo and start scene buttons.
+                for (int i = 3; i < 5; i++)
                 {
                     buttons[i].interactable = false;
                 }
 
-                /// Update _hasDisabledButtons.
-                _hasDisabledButtons = true;
-            }
-            else if (_hasDisabledButtons)
-            {
-                /// The pose is valid; enable all UI placement buttons.
-                for (int i = 0; i < 3; i++)
+                /// Check if the placement pose of the placement indicator is valid.
+                if (!_interactionHandler.GetPlacementValidity())
                 {
-                    buttons[i].interactable = true;
-                }
+                    /// The pose is not valid; adjust all UI placement buttons.
+                    for (int i = 0; i < 3; i++)
+                    {
+                        buttons[i].interactable = false;
+                    }
 
-                /// Update _hasDisabledButtons.
-                _hasDisabledButtons = false;
+                    /// Update _hasDisabledButtons.
+                    _hasDisabledButtons = true;
+                }
+                else if (_hasDisabledButtons)
+                {
+                    /// The pose is valid; enable all UI placement buttons.
+                    for (int i = 0; i < 3; i++)
+                    {
+                        buttons[i].interactable = true;
+                    }
+
+                    /// Update _hasDisabledButtons.
+                    _hasDisabledButtons = false;
+                }
+            }
+            else
+            {
+                /// Adjust the button interactability.
+                for (int i = 0; i < buttons.Count; i++)
+                {
+                    if (i < 3)
+                    {
+                        /// Disable the rotation and placement buttons.
+                        buttons[i].interactable = false;
+                    }
+                    else
+                    {
+                        /// Enable the undo and start scene buttons.
+                        buttons[i].interactable = true;
+                    }
+                }
             }
         }
         else
         {
-            /// Adjust the button interactability.
-            for (int i = 0; i < buttons.Count; i++)
+            if (_interactionHandler.GetPlacedObjectCount() == 0)
             {
-                if (i < 3)
-                {
-                    /// Disable the rotation and placement buttons.
-                    buttons[i].interactable = false;
-                }
-                else
-                {
-                    /// Enable the undo and start scene buttons.
-                    buttons[i].interactable = true;
-                }
+                buttons[0].interactable = true;
+                buttons[3].interactable = false;
+                buttons[4].interactable = false;
+            }
+            else
+            {
+                buttons[0].interactable = false;
+                buttons[3].interactable = true;
+                buttons[4].interactable = true;
             }
         }
     }

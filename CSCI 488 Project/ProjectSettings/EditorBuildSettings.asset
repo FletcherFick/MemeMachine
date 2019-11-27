@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PassiveScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/ActiveScene.unity
+    guid: 003f67e73a44a1d4780fb2bbdfb14840
   m_configObjects: {}

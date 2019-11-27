@@ -12,6 +12,10 @@ using System;
 ///</summary>
 public class InteractionHandler : MonoBehaviour
 {
+    public bool isPassiveScene;
+
+    public GameObject activeModelPreview;
+
     /// <summary>placementIndicator represents the placement reticle.</summary>
     /// <value>
     /// placementIndicator references and stores information about 
@@ -94,20 +98,23 @@ public class InteractionHandler : MonoBehaviour
     /// </summary>
     void Start()
     {
-        /// Setup some variables for later use.
-        _placementPoseIsValid = false;
-        _rotationSpeed = 100.0f;
-        _placedObjectCount = 0;
+        if (isPassiveScene)
+        {
+            /// Setup some variables for later use.
+            _placementPoseIsValid = false;
+            _rotationSpeed = 100.0f;
+            _placedObjectCount = 0;
 
-        /// Connect _arRaycastManager to the AR Session Origin's raycast manager.
-        _arRaycastManager = FindObjectOfType<ARSessionOrigin>().
-            GetComponent<ARRaycastManager>();
+            /// Connect _arRaycastManager to the AR Session Origin's raycast manager.
+            _arRaycastManager = FindObjectOfType<ARSessionOrigin>().
+                GetComponent<ARRaycastManager>();
 
+            /// Set the initial rotation for the placement reticle.
+            placementIndicator.transform.rotation = Quaternion.Euler(Vector3.forward);
+        }
+        
         /// Connect _buttonHandler to the ButtonHandler script.
         _buttonHandler = GameObject.Find("Button Handler");
-
-        /// Set the initial rotation for the placement reticle.
-        placementIndicator.transform.rotation = Quaternion.Euler(Vector3.forward);
     }
 
     /// <summary>
@@ -115,16 +122,19 @@ public class InteractionHandler : MonoBehaviour
     /// </summary>
     void Update()
     {
-        /// Update the pose of the placement reticle.
-        UpdatePlacementPose();
-
-        /// Update the placement reticle game object's position.
-        UpdatePlacementIndicator();
-
-        /// If a rotation button is being pushed, rotate the placement reticle.
-        if (_rotationPointerDown && _placedObjectCount == 0)
+        if (isPassiveScene)
         {
-            RotatePlacementIndicator(_rotationDirection);
+            /// Update the pose of the placement reticle.
+            UpdatePlacementPose();
+
+            /// Update the placement reticle game object's position.
+            UpdatePlacementIndicator();
+
+            /// If a rotation button is being pushed, rotate the placement reticle.
+            if (_rotationPointerDown && _placedObjectCount == 0)
+            {
+                RotatePlacementIndicator(_rotationDirection);
+            }
         }
     }
 
@@ -182,16 +192,32 @@ public class InteractionHandler : MonoBehaviour
     /// <param name="gameObject">The object to be placed.</param>
     public void PlaceObject(GameObject gameObject)
     {
-        /// If the placement pose is valid and the user taps the screen, 
-        /// place a new objectToPlace object.
-        if (_placementPoseIsValid && _placedObjectCount == 0)
+        if (isPassiveScene)
         {
-            _placedObjectCount = 1;
+            /// If the placement pose is valid and the user taps the screen, 
+            /// place a new objectToPlace object.
+            if (_placementPoseIsValid && _placedObjectCount == 0)
+            {
+                _placedObjectCount = 1;
 
-            /// Create a new game object at the placement reticle.
-            _placedGameObject = Instantiate(gameObject,
-                _placementPose.position, 
-                placementIndicator.transform.rotation);
+                /// Create a new game object at the placement reticle.
+                _placedGameObject = Instantiate(gameObject,
+                    _placementPose.position, 
+                    placementIndicator.transform.rotation);
+            }
+        }
+        else
+        {
+            if (_placedObjectCount == 0)
+            {
+                _placedObjectCount = 1;
+
+                activeModelPreview.SetActive(false);
+
+                _placedGameObject = Instantiate(gameObject,
+                    new Vector3(Camera.main.transform.position.x + 0.4f, Camera.main.transform.position.y - 1.5f, Camera.main.transform.position.z + 0.25f),
+                    Quaternion.Euler(0.0f, Camera.main.transform.eulerAngles.y + 270.0f, 0.0f));
+            }
         }
     }
 
@@ -203,6 +229,11 @@ public class InteractionHandler : MonoBehaviour
         /// Destroy the placed object and decrement _placedObjectCount.
         Destroy(_placedGameObject);
         _placedObjectCount = 0;
+
+        if (!isPassiveScene)
+        {
+            activeModelPreview.SetActive(true);
+        }
 
         /// Re-enable the rotation and placement buttons.
         for (int i = 0; i < 3; i++)
@@ -299,5 +330,17 @@ public class InteractionHandler : MonoBehaviour
     public Vector3 GetPlacedObjectDirection()
     {
         return _placedGameObject.transform.forward;
+    }
+
+    public Animator GetPlacedObjectAnimator()
+    {
+        if (_placedGameObject.GetComponent<Animator>())
+        {
+            return _placedGameObject.GetComponent<Animator>();
+        }
+        else
+        {
+            return null;
+        }
     }
 }

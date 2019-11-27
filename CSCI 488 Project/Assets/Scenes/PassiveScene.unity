@@ -616,6 +616,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13ace4db1260708458c28cd9567f5888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPassiveScene: 1
+  activeModelPreview: {fileID: 0}
   placementIndicator: {fileID: 40919614}
   objectToPlace: {fileID: 7001043658033031753, guid: 8437de95130e7d344a28a2f4762c6fde,
     type: 3}
@@ -1316,7 +1318,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: -2.3223359e+33}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1656,6 +1658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b23df8b9a77f142936ded2c8d173ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPassiveScene: 1
   buttons:
   - {fileID: 507994134}
   - {fileID: 820494978}
@@ -2561,6 +2564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6898764bc1a2414da67d101b8cc751e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPassiveScene: 1
 --- !u!4 &1524056165
 Transform:
   m_ObjectHideFlags: 0

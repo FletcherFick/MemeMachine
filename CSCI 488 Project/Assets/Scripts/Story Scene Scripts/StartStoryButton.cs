@@ -8,6 +8,8 @@ using UnityEngine;
 ///</summary>
 public class StartStoryButton : MonoBehaviour
 {
+    public bool isPassiveScene;
+
     /// <summary>_buttonHandler references Button Manager.</summary>
     /// <value>
     /// _buttonHandler is used to store a reference to the Button 
@@ -35,6 +37,9 @@ public class StartStoryButton : MonoBehaviour
     /// connected to the Passive Scene Handler game object.
     /// </value>
     private PassiveSceneHandler _passiveSceneScript;
+
+    private GameObject _activeSceneHandler;
+    private ActiveSceneHandler _activeSceneScript;
 
     /// <summary>_modelDisplayBackground references the Object Display object.</summary>
     /// <value>
@@ -69,11 +74,19 @@ public class StartStoryButton : MonoBehaviour
         /// Connect _buttonHandlerScript to the ButtonHandler script on _buttonHandler.
         _buttonHandlerScript = _buttonHandler.GetComponent<ButtonHandler>();
 
-        /// Connect _passiveSceneHandler to the Passive Scene Handler game object.
-        _passiveSceneHandler = GameObject.Find("Passive Scene Handler");
+        if (isPassiveScene)
+        {
+            /// Connect _passiveSceneHandler to the Passive Scene Handler game object.
+            _passiveSceneHandler = GameObject.Find("Passive Scene Handler");
 
-        /// Connect _passiveSceneScript to the PassiveSceneHandler script on _passiveSceneHandler.
-        _passiveSceneScript = _passiveSceneHandler.GetComponent<PassiveSceneHandler>();
+            /// Connect _passiveSceneScript to the PassiveSceneHandler script on _passiveSceneHandler.
+            _passiveSceneScript = _passiveSceneHandler.GetComponent<PassiveSceneHandler>();
+        }
+        else
+        {
+            _activeSceneHandler = GameObject.Find("Active Scene Handler");
+            _activeSceneScript = _activeSceneHandler.GetComponent<ActiveSceneHandler>();
+        }
 
         /// Create references to the components that render the preview model.
         _modelDisplayBackground = GameObject.Find("Model Display");
@@ -96,7 +109,7 @@ public class StartStoryButton : MonoBehaviour
         _modelDisplayRender.SetActive(false);
 
         /// Start the story.
-        StartCoroutine(BeginStory(10));
+        StartCoroutine(BeginStory(5));
     }
 
     /// <summary>
@@ -108,7 +121,15 @@ public class StartStoryButton : MonoBehaviour
         /// Wait for X seconds.
         yield return new WaitForSeconds(seconds);
 
-        /// Call the StartStory function.
-        _passiveSceneScript.StartStory();
+        if (isPassiveScene)
+        {
+            /// Call the StartStory function.
+            _passiveSceneScript.StartStory();
+        }
+        else
+        {
+            _activeSceneScript.inactiveCrosshair.SetActive(true);
+            _activeSceneScript.StartStory();
+        }
     }
 }
