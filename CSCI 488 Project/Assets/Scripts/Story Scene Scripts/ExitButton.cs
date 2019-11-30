@@ -13,6 +13,11 @@ public class ExitButton : MonoBehaviour
     /// </summary>
     public void ExitScene()
     {
+        string currentScene = SceneManager.GetActiveScene().name;
+        if (currentScene == "ActiveScene")
+        {
+            GameObject.Find("Active Scene Handler").GetComponent<ActiveSceneHandler>().ResetTriggerValues();
+        }
         SceneManager.LoadScene("TempMainMenu");
     }
 }

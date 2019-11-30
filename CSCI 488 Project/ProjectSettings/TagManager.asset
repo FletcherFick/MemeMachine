@@ -5,8 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Radio
-  - InteriorHandle
   - ExteriorHandle
+  - Car
+  - CarLock
+  - SteeringWheel
+  - DoorLock
+  - Hook
   layers:
   - Default
   - TransparentFX

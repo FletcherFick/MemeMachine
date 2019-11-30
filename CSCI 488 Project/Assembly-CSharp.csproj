@@ -65,6 +65,14 @@
      <Compile Include="Assets\Scripts\PersistentSettings.cs" />
      <Compile Include="Assets\Scripts\Story Scene Scripts\Active Story Scripts\ActiveSceneHandler.cs" />
      <Compile Include="Assets\Scripts\Story Scene Scripts\Active Story Scripts\CameraModelPreview.cs" />
+     <Compile Include="Assets\Scripts\Story Scene Scripts\Active Story Scripts\Dialogue1Button.cs" />
+     <Compile Include="Assets\Scripts\Story Scene Scripts\Active Story Scripts\Dialogue2Button.cs" />
+     <Compile Include="Assets\Scripts\Story Scene Scripts\Active Story Scripts\Dialogue3_5Button.cs" />
+     <Compile Include="Assets\Scripts\Story Scene Scripts\Active Story Scripts\Dialogue3Button.cs" />
+     <Compile Include="Assets\Scripts\Story Scene Scripts\Active Story Scripts\Dialogue4Button.cs" />
+     <Compile Include="Assets\Scripts\Story Scene Scripts\Active Story Scripts\Dialogue5Button.cs" />
+     <Compile Include="Assets\Scripts\Story Scene Scripts\Active Story Scripts\Dialogue6Button.cs" />
+     <Compile Include="Assets\Scripts\Story Scene Scripts\Active Story Scripts\InteractButton.cs" />
      <Compile Include="Assets\Scripts\Story Scene Scripts\AudioButton.cs" />
      <Compile Include="Assets\Scripts\Story Scene Scripts\ButtonHandler.cs" />
      <Compile Include="Assets\Scripts\Story Scene Scripts\DeleteObjectButton.cs" />
