@@ -79,6 +79,7 @@
      <Compile Include="Assets\Scripts\Story Scene Scripts\DialogueButton.cs" />
      <Compile Include="Assets\Scripts\Story Scene Scripts\DisplayModel.cs" />
      <Compile Include="Assets\Scripts\Story Scene Scripts\ExitButton.cs" />
+     <Compile Include="Assets\Scripts\Story Scene Scripts\HamburgerButton.cs" />
      <Compile Include="Assets\Scripts\Story Scene Scripts\InteractionHandler.cs" />
      <Compile Include="Assets\Scripts\Story Scene Scripts\MainMenuButton.cs" />
      <Compile Include="Assets\Scripts\Story Scene Scripts\Passive Story Scripts\PassiveSceneHandler.cs" />

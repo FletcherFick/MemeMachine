@@ -62,6 +62,7 @@ public class ActiveSceneHandler : MonoBehaviour
     private GameObject _persistentSettings;
     private PersistentSettings _settingsScript;
     public GameObject muteButton;
+    public GameObject hamburgerButton;
 
     // Awake is called before the first frame update
     void Awake()
@@ -390,9 +391,7 @@ public class ActiveSceneHandler : MonoBehaviour
                 inactiveCrosshair.SetActive(false);
                 interactButtons[4].gameObject.SetActive(false);
                 endScreen.SetActive(true);
-                muteButton.SetActive(false);
-                subtitleButton.SetActive(false);
-                exitButton.SetActive(false);
+                hamburgerButton.SetActive(false);
                 instructions[4].SetActive(false);
                 hitboxes[7].SetActive(false);
 
