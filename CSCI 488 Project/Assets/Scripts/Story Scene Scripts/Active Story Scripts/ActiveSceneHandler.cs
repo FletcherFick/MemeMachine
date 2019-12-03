@@ -122,6 +122,7 @@ public class ActiveSceneHandler : MonoBehaviour
     private bool sceneInitiated = false;
     public GameObject endScreen;
     public GameObject exitButton;
+    public GameObject subtitleButton;
 
     // Update is called once per frame
     void Update()
@@ -390,6 +391,7 @@ public class ActiveSceneHandler : MonoBehaviour
                 interactButtons[4].gameObject.SetActive(false);
                 endScreen.SetActive(true);
                 muteButton.SetActive(false);
+                subtitleButton.SetActive(false);
                 exitButton.SetActive(false);
                 instructions[4].SetActive(false);
                 hitboxes[7].SetActive(false);

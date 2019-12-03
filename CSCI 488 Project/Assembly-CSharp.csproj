@@ -84,6 +84,7 @@
      <Compile Include="Assets\Scripts\Story Scene Scripts\Passive Story Scripts\PassiveSceneHandler.cs" />
      <Compile Include="Assets\Scripts\Story Scene Scripts\PlaceObjectButton.cs" />
      <Compile Include="Assets\Scripts\Story Scene Scripts\StartStoryButton.cs" />
+     <Compile Include="Assets\Scripts\Story Scene Scripts\SubtitleButton.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/riley/Desktop/local-dev/MemeMachine/CSCI 488 Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

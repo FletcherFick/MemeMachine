@@ -31,6 +31,7 @@ ScriptsOnlyBuild:
     - SettingsButton
     - SettingsHandler
     - StartStoryButton
+    - SubtitleButton
     - SubtitlesButton
     Unity.XR.ARFoundation.dll:
     - UnityEngine.XR.ARFoundation.ARCameraBackground
@@ -184,7 +185,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11634}
     - Class: 114
-      Script: {instanceID: 14342}
+      Script: {instanceID: 15032}
+    - Class: 114
+      Script: {instanceID: 20168}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -297,7 +300,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11634}
     - Class: 114
-      Script: {instanceID: 14342}
+      Script: {instanceID: 15032}
+    - Class: 114
+      Script: {instanceID: 20168}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -784,7 +789,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 1009f39d7f8da1866c76d5b6760ad3fa
+      Hash: 39404d8320668b2fa555028e35c7ad65
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ActiveSceneHandler
@@ -1012,7 +1017,7 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: 646fd568af98d7d6d41ee24300f9d811
+      Hash: 9c38ffd78b180ad5ab7177497f1c7eee
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PassiveSceneHandler
@@ -1082,6 +1087,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 42e7754fe868bd57fc4d8d1b5ac7572d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SubtitleButton
   platform: 13
   scenePathNames:
   - Assets/Scenes/TempMainMenu.unity
