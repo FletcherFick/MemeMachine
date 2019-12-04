@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1078607938228374151}
   - component: {fileID: 2821146648428598149}
   - component: {fileID: 7543854753950904016}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: door_lf_ok_001
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2533422237529323660}
   - component: {fileID: 4529313696155051704}
   - component: {fileID: 3639612096551377854}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 3D_Object_#32_005
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5475048252659229531}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DriverDoorHinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 6911869369696591563}
   - component: {fileID: 7166698786514853798}
   - component: {fileID: 5420652282734062872}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: windscre01_001
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 6659844116412668854}
   - component: {fileID: 1663354064904338067}
   - component: {fileID: 4337995748522181485}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 915#1_001
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4040350005865101041}
   - component: {fileID: 5639428407276594568}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BMW X5 4
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -457,7 +457,7 @@ GameObject:
   - component: {fileID: 6214822314896165906}
   - component: {fileID: 4201927635037654442}
   - component: {fileID: 1015963561116089502}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DONT_EDIT_001
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 556794493038379102}
   - component: {fileID: 6891708798305110205}
   - component: {fileID: 1967773464942332849}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WITHOUT_PE_001
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -664,7 +664,7 @@ GameObject:
   - component: {fileID: 3480555508049367710}
   - component: {fileID: 3740704883418382536}
   - component: {fileID: 7131729314523585509}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorHitbox2
   m_TagString: ExteriorHandle
   m_Icon: {fileID: 0}
@@ -755,7 +755,7 @@ GameObject:
   - component: {fileID: 3774413095271493266}
   - component: {fileID: 2884447105665530428}
   - component: {fileID: 5867039548167298887}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: door_lr_ok_001
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -838,7 +838,7 @@ GameObject:
   - component: {fileID: 3724443484376713218}
   - component: {fileID: 8848950903060765477}
   - component: {fileID: 2472449921049395482}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wheel_003
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -916,7 +916,7 @@ GameObject:
   - component: {fileID: 4928958608442041235}
   - component: {fileID: 7128088939592603523}
   - component: {fileID: 6333145598988686610}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bonnet_ok_001
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -1003,7 +1003,7 @@ GameObject:
   - component: {fileID: 2408412430877338326}
   - component: {fileID: 6638289634403823311}
   - component: {fileID: 1463912769006081582}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hook
   m_TagString: Hook
   m_Icon: {fileID: 0}
@@ -1094,7 +1094,7 @@ GameObject:
   - component: {fileID: 8980349893292190256}
   - component: {fileID: 4213297773058762946}
   - component: {fileID: 8354472406061920364}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Group_001
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -1173,7 +1173,7 @@ GameObject:
   - component: {fileID: 3764417601449310246}
   - component: {fileID: 1275364734097756461}
   - component: {fileID: 1407551262156291085}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MTK#1_002
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -1252,7 +1252,7 @@ GameObject:
   - component: {fileID: 1368663749230827880}
   - component: {fileID: 6090343143505388884}
   - component: {fileID: 5549505333399002531}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SteeringWheelHitbox
   m_TagString: SteeringWheel
   m_Icon: {fileID: 0}
@@ -1344,7 +1344,7 @@ GameObject:
   - component: {fileID: 7678396879412659346}
   - component: {fileID: 4236496727445795685}
   - component: {fileID: 8653297965304791308}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: steklo_001
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -1426,7 +1426,7 @@ GameObject:
   - component: {fileID: 8703376842932450230}
   - component: {fileID: 1596092535445053255}
   - component: {fileID: 7491560442854462732}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorHitbox1
   m_TagString: ExteriorHandle
   m_Icon: {fileID: 0}
@@ -1517,7 +1517,7 @@ GameObject:
   - component: {fileID: 5183302229305105502}
   - component: {fileID: 522510263384501250}
   - component: {fileID: 1890570190694762550}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MTK#1_001
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -1595,7 +1595,7 @@ GameObject:
   - component: {fileID: 4178194360804802391}
   - component: {fileID: 1026047745012150418}
   - component: {fileID: 6437906173764890780}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 3D_Object_#32_003
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -1676,7 +1676,7 @@ GameObject:
   - component: {fileID: 4300938689375810183}
   - component: {fileID: 4352208390447141703}
   - component: {fileID: 2910548408522708252}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Group_004
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -1761,7 +1761,7 @@ GameObject:
   - component: {fileID: 153253479567103084}
   - component: {fileID: 828865637235775448}
   - component: {fileID: 5808703335204821160}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 3D_Object_#32_001
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -1842,7 +1842,7 @@ GameObject:
   - component: {fileID: 2285504436579974895}
   - component: {fileID: 2437051058632708557}
   - component: {fileID: 8830765166548655829}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: boot_ok_001
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -1928,7 +1928,7 @@ GameObject:
   - component: {fileID: 5078930308089657494}
   - component: {fileID: 5372378443194287655}
   - component: {fileID: 8686349113034013041}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorLockHitbox
   m_TagString: CarLock
   m_Icon: {fileID: 0}
@@ -2019,7 +2019,7 @@ GameObject:
   - component: {fileID: 7188169309722856916}
   - component: {fileID: 5959243745914357064}
   - component: {fileID: 1867466874270663792}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wheel_001
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -2097,7 +2097,7 @@ GameObject:
   - component: {fileID: 5156813034405393225}
   - component: {fileID: 3738195943842566314}
   - component: {fileID: 5905458896312093578}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: fara_lf_001
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -2178,7 +2178,7 @@ GameObject:
   - component: {fileID: 5836012571675036806}
   - component: {fileID: 5259491351387416435}
   - component: {fileID: 351272061134911688}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: M#3_001
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -2257,7 +2257,7 @@ GameObject:
   - component: {fileID: 5104702077854287093}
   - component: {fileID: 2228867800621948706}
   - component: {fileID: 6455483777645238304}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RadioHitbox
   m_TagString: Radio
   m_Icon: {fileID: 0}
@@ -2349,7 +2349,7 @@ GameObject:
   - component: {fileID: 3797284465986019832}
   - component: {fileID: 8390233863387005240}
   - component: {fileID: 8133856535544928233}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorHitbox4
   m_TagString: ExteriorHandle
   m_Icon: {fileID: 0}
@@ -2440,7 +2440,7 @@ GameObject:
   - component: {fileID: 7828582657222031449}
   - component: {fileID: 4028844971295350982}
   - component: {fileID: 7480630136392311337}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plate 08_001
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -2523,7 +2523,7 @@ GameObject:
   - component: {fileID: 8292767298087016609}
   - component: {fileID: 8150256152260889191}
   - component: {fileID: 7155553222430666324}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: D#1_002
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -2601,7 +2601,7 @@ GameObject:
   - component: {fileID: 1431738231228408278}
   - component: {fileID: 2688265432902997769}
   - component: {fileID: 2281438600596416465}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: svetilo_001
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -2683,7 +2683,7 @@ GameObject:
   - component: {fileID: 4044567167376266782}
   - component: {fileID: 1970801166568883796}
   - component: {fileID: 4948932050704288547}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: D#1_001
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -2761,7 +2761,7 @@ GameObject:
   - component: {fileID: 6160427996760190047}
   - component: {fileID: 9176715842548187735}
   - component: {fileID: 7478736844136978008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 915#1_002
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -2839,7 +2839,7 @@ GameObject:
   - component: {fileID: 4944220772939972565}
   - component: {fileID: 572397779779749916}
   - component: {fileID: 6325926678237915481}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 3D_Object_#32_007
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -2920,7 +2920,7 @@ GameObject:
   - component: {fileID: 250682048975557286}
   - component: {fileID: 6953173225823607118}
   - component: {fileID: 7323329082499062054}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wheel_002
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -2998,7 +2998,7 @@ GameObject:
   - component: {fileID: 998410853110144512}
   - component: {fileID: 703565515151303958}
   - component: {fileID: 6545595186614572790}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plate 08_003
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -3081,7 +3081,7 @@ GameObject:
   - component: {fileID: 2172619193489759035}
   - component: {fileID: 8618560048376556153}
   - component: {fileID: 817210090901655516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: door_rr_ok_001
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -3164,7 +3164,7 @@ GameObject:
   - component: {fileID: 4446107029400940744}
   - component: {fileID: 8026690000813458713}
   - component: {fileID: 9053225735550171099}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: door_rf_ok_001
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -3251,7 +3251,7 @@ GameObject:
   - component: {fileID: 7337167837720309011}
   - component: {fileID: 1322407076664786414}
   - component: {fileID: 2768241391838752970}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorHitbox3
   m_TagString: ExteriorHandle
   m_Icon: {fileID: 0}
@@ -3342,7 +3342,7 @@ GameObject:
   - component: {fileID: 781005918354687369}
   - component: {fileID: 3712171043706700851}
   - component: {fileID: 2477933047008434691}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: fara_lf_003
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -3423,7 +3423,7 @@ GameObject:
   - component: {fileID: 5609521796113169575}
   - component: {fileID: 5662655290632297749}
   - component: {fileID: 7348104758519204557}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wheel_004
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -3501,7 +3501,7 @@ GameObject:
   - component: {fileID: 6610120698163558924}
   - component: {fileID: 123635568489108908}
   - component: {fileID: 1467987749636476493}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Group_002
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -3582,7 +3582,7 @@ GameObject:
   - component: {fileID: 74713343380136948}
   - component: {fileID: 5047954234715216729}
   - component: {fileID: 7807291402471059316}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: M#3_002
   m_TagString: Car
   m_Icon: {fileID: 0}
