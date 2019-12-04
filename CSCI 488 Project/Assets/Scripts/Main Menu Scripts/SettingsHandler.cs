@@ -31,20 +31,20 @@ public class SettingsHandler : MonoBehaviour
         {
             if (!_settingsScript.GetMuteStatus())
             {
-                muteButton.GetComponent<Image>().color = Color.red;
+                muteButton.GetComponent<Image>().color = new Color32(255, 167, 167, 255);
             }
             else
             {
-                muteButton.GetComponent<Image>().color = Color.green;
+                muteButton.GetComponent<Image>().color = new Color32(165, 255, 153, 255);
             }
 
             if (!_settingsScript.GetSubtitleStatus())
             {
-                subtitlesButton.GetComponent<Image>().color = Color.red;
+                subtitlesButton.GetComponent<Image>().color = new Color32(255, 167, 167, 255);
             }
             else
             {
-                subtitlesButton.GetComponent<Image>().color = Color.green;
+                subtitlesButton.GetComponent<Image>().color = new Color32(165, 255, 153, 255);
             }
         }
     }
