@@ -18,8 +18,7 @@ public class ReturnButton : MonoBehaviour
     public GameObject subtitlesEnabledText;
     public GameObject subtitlesDisabledText;
     public GameObject storySelectTitle;
-    public GameObject passiveStoryButton;
-    public GameObject activeStoryButton;
+    public GameObject storyScrollView;
 
     private GameObject _settingsHandler;
     private SettingsHandler _settingsHandlerScript;
@@ -64,8 +63,7 @@ public class ReturnButton : MonoBehaviour
         subtitlesEnabledText.SetActive(false);
         subtitlesDisabledText.SetActive(false);
         storySelectTitle.SetActive(false);
-        passiveStoryButton.SetActive(false);
-        activeStoryButton.SetActive(false);
+        storyScrollView.SetActive(false);
 
         animator.SetBool("fade", false);
         yield return new WaitUntil(()=>transitionFade.color.a==0);

@@ -12,8 +12,7 @@ public class SelectStoryButton : MonoBehaviour
     private GameObject _quitButton;
 
     public GameObject storySelectTitle;
-    public GameObject passiveStoryButton;
-    public GameObject activeStoryButton;
+    public GameObject storyScrollView;
     public GameObject returnButton;
 
     public Image transitionFade;
@@ -47,8 +46,7 @@ public class SelectStoryButton : MonoBehaviour
         _settingsButton.gameObject.SetActive(false);
         _quitButton.gameObject.SetActive(false);
         storySelectTitle.SetActive(true);
-        passiveStoryButton.SetActive(true);
-        activeStoryButton.SetActive(true);
+        storyScrollView.SetActive(true);
         returnButton.SetActive(true);
 
         animator.SetBool("fade", false);
