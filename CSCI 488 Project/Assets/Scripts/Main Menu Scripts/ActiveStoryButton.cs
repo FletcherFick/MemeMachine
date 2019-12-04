@@ -6,18 +6,20 @@ using UnityEngine.UI;
 
 public class ActiveStoryButton : MonoBehaviour
 {
-    public Image transitionFade;
-    public Animator animator;
+    public GameObject confirmationWindow;
+    public GameObject screenShade;
+    public GameObject passiveStoryName;
+    public GameObject passiveStoryStartButton;
+    public GameObject activeStoryName;
+    public GameObject activeStoryStartButton;
 
     public void StartActiveStory()
     {
-        StartCoroutine(FadeOutTransition());
-    }
-
-    private IEnumerator FadeOutTransition()
-    {
-        animator.SetBool("fade", true);
-        yield return new WaitUntil(()=>transitionFade.color.a==1);
-        SceneManager.LoadScene("ActiveScene");
+        screenShade.SetActive(true);
+        confirmationWindow.SetActive(true);
+        passiveStoryName.SetActive(false);
+        activeStoryName.SetActive(true);
+        passiveStoryStartButton.SetActive(false);
+        activeStoryStartButton.SetActive(true);
     }
 }

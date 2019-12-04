@@ -1,23 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PassiveStoryButton : MonoBehaviour
 {
-    public Image transitionFade;
-    public Animator animator;
+    public GameObject confirmationWindow;
+    public GameObject screenShade;
+    public GameObject passiveStoryName;
+    public GameObject passiveStoryStartButton;
+    public GameObject activeStoryName;
+    public GameObject activeStoryStartButton;
 
     public void StartPassiveStory()
     {
-        StartCoroutine(FadeOutTransition());
-    }
-
-    private IEnumerator FadeOutTransition()
-    {
-        animator.SetBool("fade", true);
-        yield return new WaitUntil(()=>transitionFade.color.a==1);
-        SceneManager.LoadScene("PassiveScene");
+        screenShade.SetActive(true);
+        confirmationWindow.SetActive(true);
+        passiveStoryName.SetActive(true);
+        activeStoryName.SetActive(false);
+        passiveStoryStartButton.SetActive(true);
+        activeStoryStartButton.SetActive(false);
     }
 }
