@@ -63,6 +63,10 @@ public class ActiveSceneHandler : MonoBehaviour
     private PersistentSettings _settingsScript;
     public GameObject muteButton;
     public GameObject hamburgerButton;
+    public GameObject passiveCursor;
+
+    public Image transitionFade;
+    public Animator animator;
 
     // Awake is called before the first frame update
     void Awake()
@@ -72,6 +76,7 @@ public class ActiveSceneHandler : MonoBehaviour
         activeCrosshair.SetActive(false);
         inactiveCrosshair.SetActive(false);
         transitionScreen.SetActive(false);
+        passiveCursor.SetActive(false);
 
         radioReport = Resources.Load<AudioClip>("radio_report");
 
@@ -124,6 +129,8 @@ public class ActiveSceneHandler : MonoBehaviour
     public GameObject endScreen;
     public GameObject exitButton;
     public GameObject subtitleButton;
+
+    private bool canTransition = true;
 
     // Update is called once per frame
     void Update()
@@ -328,18 +335,17 @@ public class ActiveSceneHandler : MonoBehaviour
 
             if (showTransitionScreen && playerDialogueTriggers[5])
             {
-                activeCrosshair.SetActive(false);
-                inactiveCrosshair.SetActive(false);
-                foreach (Button button in interactButtons)
-                {
-                    button.gameObject.SetActive(false);
-                }
-                transitionScreen.SetActive(true);
+                StartCoroutine(FadeIn());
             }
 
             if (sarahAudioTriggers[8] && !playerDialogueTriggers[6])
             {
+                showTransitionScreen = false;
                 sarahAudioTriggers[8] = false;
+                StopCoroutine(FadeIn());
+                activeCrosshair.SetActive(false);
+                inactiveCrosshair.SetActive(true);
+                interactButtons[2].gameObject.SetActive(true);
                 StartCoroutine(DisableTransitionScreen());
             }
 
@@ -392,6 +398,9 @@ public class ActiveSceneHandler : MonoBehaviour
                 interactButtons[4].gameObject.SetActive(false);
                 endScreen.SetActive(true);
                 hamburgerButton.SetActive(false);
+                muteButton.SetActive(false);
+                subtitleButton.SetActive(false);
+                exitButton.SetActive(false);
                 instructions[4].SetActive(false);
                 hitboxes[7].SetActive(false);
 
@@ -495,16 +504,12 @@ public class ActiveSceneHandler : MonoBehaviour
 
     private IEnumerator DisableTransitionScreen()
     {
-        yield return new WaitForSeconds(2.0f);
-
-        showTransitionScreen = false;
-        transitionScreen.SetActive(false);
-        activeCrosshair.SetActive(false);
-        inactiveCrosshair.SetActive(true);
-        interactButtons[2].gameObject.SetActive(true);
         //interactButton.gameObject.SetActive(true);
         dialogue[5].interactable = false;
         dialogue[5].gameObject.SetActive(false);
+        animator.SetBool("fade", false);
+        yield return new WaitUntil(()=>transitionFade.color.a==0);
+        animator.speed = 1.0f;
         yield return new WaitForSeconds(1.5f);
         _audioSource.PlayOneShot(_sarahDialogue[8]);
         playerDialogueTriggers[6] = true;
@@ -549,5 +554,31 @@ public class ActiveSceneHandler : MonoBehaviour
     {
         dialogue[5].interactable = false;
         dialogue[5].gameObject.SetActive(false);
+    }
+
+    private IEnumerator FadeIn()
+    {
+        if (canTransition)
+        {
+            canTransition = false;
+            animator.speed = 4.0f;
+            animator.SetBool("fade", true);
+            yield return new WaitUntil(()=>transitionFade.color.a==1);
+            animator.speed = 1.0f;
+        }
+
+        activeCrosshair.SetActive(false);
+        inactiveCrosshair.SetActive(false);
+        foreach (Button button in interactButtons)
+        {
+            button.gameObject.SetActive(false);
+        }
+    }
+
+    private IEnumerator FadeOut()
+    {
+        animator.SetBool("fade", false);
+        yield return new WaitUntil(()=>transitionFade.color.a==0);
+        animator.speed = 1.0f;
     }
 }

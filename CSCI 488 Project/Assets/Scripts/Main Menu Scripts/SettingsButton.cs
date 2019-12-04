@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SettingsButton : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class SettingsButton : MonoBehaviour
     public GameObject persistentSettings;
     private PersistentSettings _settingsScript;
 
+    public Image transitionFade;
+    public Animator animator;
+
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -37,6 +41,15 @@ public class SettingsButton : MonoBehaviour
 
     public void OpenSettings()
     {
+        StartCoroutine(SettingsTransition());
+    }
+
+    private IEnumerator SettingsTransition()
+    {
+        animator.speed = 4.0f;
+        animator.SetBool("fade", true);
+        yield return new WaitUntil(()=>transitionFade.color.a==1);
+
         menuTitle.gameObject.SetActive(false);
         selectStoryButton.gameObject.SetActive(false);
         settingsButton.gameObject.SetActive(false);
@@ -69,5 +82,9 @@ public class SettingsButton : MonoBehaviour
         }
         
         _settingsHandlerScript._settingsMenuOpen = true;
+
+        animator.SetBool("fade", false);
+        yield return new WaitUntil(()=>transitionFade.color.a==0);
+        animator.speed = 1.0f;
     }
 }

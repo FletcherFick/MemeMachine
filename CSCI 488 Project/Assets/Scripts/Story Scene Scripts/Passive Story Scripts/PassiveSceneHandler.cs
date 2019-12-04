@@ -99,6 +99,9 @@ public class PassiveSceneHandler : MonoBehaviour
     private PersistentSettings _settingsScript;
 
     public GameObject hamburgerButton;
+    public GameObject muteButton;
+    public GameObject subtitleButton;
+    public GameObject exitButton;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -233,6 +236,9 @@ public class PassiveSceneHandler : MonoBehaviour
             /// The monster has reached the player; display the end screen.
             _endScreen.gameObject.SetActive(true);
             hamburgerButton.SetActive(false);
+            muteButton.SetActive(false);
+            subtitleButton.SetActive(false);
+            exitButton.SetActive(false);
         }
     }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ReturnButton : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class ReturnButton : MonoBehaviour
     private GameObject _settingsHandler;
     private SettingsHandler _settingsHandlerScript;
 
+    public Image transitionFade;
+    public Animator animator;
+
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -37,6 +41,15 @@ public class ReturnButton : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        StartCoroutine(MainMenuTransition());
+    }
+
+    private IEnumerator MainMenuTransition()
+    {
+        animator.speed = 4.0f;
+        animator.SetBool("fade", true);
+        yield return new WaitUntil(()=>transitionFade.color.a==1);
+
         menuTitle.gameObject.SetActive(true);
         selectStoryButton.gameObject.SetActive(true);
         settingsButton.gameObject.SetActive(true);
@@ -53,5 +66,9 @@ public class ReturnButton : MonoBehaviour
         storySelectTitle.SetActive(false);
         passiveStoryButton.SetActive(false);
         activeStoryButton.SetActive(false);
+
+        animator.SetBool("fade", false);
+        yield return new WaitUntil(()=>transitionFade.color.a==0);
+        animator.speed = 1.0f;
     }
 }
