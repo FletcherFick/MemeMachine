@@ -75,6 +75,7 @@
      <Compile Include="Assets\Scripts\Story Scene Scripts\Active Story Scripts\Dialogue5Button.cs" />
      <Compile Include="Assets\Scripts\Story Scene Scripts\Active Story Scripts\Dialogue6Button.cs" />
      <Compile Include="Assets\Scripts\Story Scene Scripts\Active Story Scripts\InteractButton.cs" />
+     <Compile Include="Assets\Scripts\Story Scene Scripts\Active Story Scripts\SubtitlesHandler.cs" />
      <Compile Include="Assets\Scripts\Story Scene Scripts\AudioButton.cs" />
      <Compile Include="Assets\Scripts\Story Scene Scripts\ButtonHandler.cs" />
      <Compile Include="Assets\Scripts\Story Scene Scripts\DeleteObjectButton.cs" />

@@ -1593,7 +1593,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 5.0654456e-18}
+  m_BoundingSphereOverride: {x: 6.91e-43, y: -1.5333117e+13, z: 6.91e-43, w: 3.59e-43}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2917,7 +2917,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '"What do you come for?"'
+  m_Text: What do you come for?
 --- !u!222 &1018218741
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4524,8 +4524,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -400}
-  m_SizeDelta: {x: 800, y: 175}
+  m_AnchoredPosition: {x: 0, y: -395}
+  m_SizeDelta: {x: 800, y: 225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1789329655
 GameObject:
@@ -5049,9 +5049,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'What do I come for?
+  m_Text: '"What do I come for?
 
-    I come for... you!'
+    I come for... you!"'
 --- !u!222 &1879287606
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5430,8 +5430,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -400}
-  m_SizeDelta: {x: 800, y: 175}
+  m_AnchoredPosition: {x: 0, y: -395}
+  m_SizeDelta: {x: 800, y: 225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2017148945
 MonoBehaviour:

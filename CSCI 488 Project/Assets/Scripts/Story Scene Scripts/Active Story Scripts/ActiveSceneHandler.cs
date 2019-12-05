@@ -46,7 +46,7 @@ public class ActiveSceneHandler : MonoBehaviour
     /// </value>
     private InteractionHandler _interactionScript;
 
-    private bool _hasStartedRadio;
+    public static bool _hasStartedRadio;
     private AudioSource _audioSource;
 
     private AudioClip[] _sarahDialogue;
@@ -192,6 +192,10 @@ public class ActiveSceneHandler : MonoBehaviour
 
                 if (sarahAudioTriggers[0])
                 {
+                    if (_settingsScript.GetSubtitleStatus())
+                    {
+                        subtitles[0].SetActive(true);
+                    }
                     _audioSource.PlayOneShot(_sarahDialogue[0]);
                     playerDialogueTriggers[0] = true;
                 }
@@ -201,6 +205,10 @@ public class ActiveSceneHandler : MonoBehaviour
             {
                 if (!_audioSource.isPlaying)
                 {
+                    if (_settingsScript.GetSubtitleStatus())
+                    {
+                        subtitles[0].SetActive(false);
+                    }
                     dialogue[0].interactable = true;
                     dialogue[0].gameObject.SetActive(true);
                 }
@@ -225,6 +233,10 @@ public class ActiveSceneHandler : MonoBehaviour
 
             if (sarahAudioTriggers[1] && !sarahAudioTriggers[2])
             {
+                if (_settingsScript.GetSubtitleStatus())
+                {
+                    subtitles[1].SetActive(true);
+                }
                 _audioSource.PlayOneShot(_sarahDialogue[1]);
                 sarahAudioTriggers[2] = true;
             }
@@ -242,6 +254,11 @@ public class ActiveSceneHandler : MonoBehaviour
             {
                 if (!_audioSource.isPlaying)
                 {
+                    if (_settingsScript.GetSubtitleStatus())
+                    {
+                        subtitles[1].SetActive(false);
+                    }
+
                     dialogue[1].interactable = true;
                     dialogue[1].gameObject.SetActive(true);
                 }
@@ -251,6 +268,10 @@ public class ActiveSceneHandler : MonoBehaviour
             {
                 dialogue[1].interactable = false;
                 dialogue[1].gameObject.SetActive(false);
+                if (_settingsScript.GetSubtitleStatus())
+                {
+                    subtitles[3].SetActive(true);
+                }
                 _audioSource.PlayOneShot(_sarahDialogue[3]);
                 playerDialogueTriggers[2] = true;
             }
@@ -259,6 +280,10 @@ public class ActiveSceneHandler : MonoBehaviour
             {
                 if (!_audioSource.isPlaying)
                 {
+                    if (_settingsScript.GetSubtitleStatus())
+                    {
+                        subtitles[3].SetActive(false);
+                    }
                     dialogue[2].interactable = true;
                     dialogue[2].gameObject.SetActive(true);
                 }
@@ -276,6 +301,10 @@ public class ActiveSceneHandler : MonoBehaviour
             {
                 dialogue[3].interactable = false;
                 dialogue[3].gameObject.SetActive(false);
+                if (_settingsScript.GetSubtitleStatus())
+                {
+                    StartCoroutine(SarahLongSubtitles());
+                }
                 _audioSource.PlayOneShot(_sarahDialogue[4]);
                 sarahAudioTriggers[5] = true;
             }
@@ -353,6 +382,10 @@ public class ActiveSceneHandler : MonoBehaviour
             {
                 if (!_audioSource.isPlaying)
                 {
+                    if (_settingsScript.GetSubtitleStatus())
+                    {
+                        subtitles[8].SetActive(false);
+                    }
                     dialogue[6].interactable = true;
                     dialogue[6].gameObject.SetActive(true);
                 }
@@ -494,10 +527,18 @@ public class ActiveSceneHandler : MonoBehaviour
     private IEnumerator PlayerSarahAudio6_7()
     {
         yield return new WaitForSeconds(4.25f);
+        if (_settingsScript.GetSubtitleStatus())
+        {
+            subtitles[6].SetActive(true);
+        }
         _audioSource.PlayOneShot(_sarahDialogue[6]);
         yield return new WaitForSeconds(1.0f);
         _audioSource.PlayOneShot(_sarahDialogue[7]);
         yield return new WaitForSeconds(3.5f);
+        if (_settingsScript.GetSubtitleStatus())
+        {
+            subtitles[6].SetActive(false);
+        }
         dialogue[5].interactable = true;
         dialogue[5].gameObject.SetActive(true);
     }
@@ -511,6 +552,10 @@ public class ActiveSceneHandler : MonoBehaviour
         yield return new WaitUntil(()=>transitionFade.color.a==0);
         animator.speed = 1.0f;
         yield return new WaitForSeconds(1.5f);
+        if (_settingsScript.GetSubtitleStatus())
+        {
+            subtitles[8].SetActive(true);
+        }
         _audioSource.PlayOneShot(_sarahDialogue[8]);
         playerDialogueTriggers[6] = true;
     }
@@ -530,6 +575,7 @@ public class ActiveSceneHandler : MonoBehaviour
         interactedWithSteeringWheel = false;
         interactedWithDoor = false;
         interactedWithHook = false;
+        SubtitlesHandler.canShowSubtitles = true;
 
         for (int i = 0; i < sarahAudioTriggers.Length; i++)
         {
@@ -580,5 +626,17 @@ public class ActiveSceneHandler : MonoBehaviour
         animator.SetBool("fade", false);
         yield return new WaitUntil(()=>transitionFade.color.a==0);
         animator.speed = 1.0f;
+    }
+
+    private IEnumerator SarahLongSubtitles()
+    {
+        subtitles[4].SetActive(true);
+        yield return new WaitForSeconds(4.5f);
+
+        subtitles[4].SetActive(false);
+        subtitles[5].SetActive(true);
+        yield return new WaitForSeconds(3.5f);
+
+        subtitles[5].SetActive(false);
     }
 }

@@ -13,7 +13,6 @@ public class CancelButton : MonoBehaviour
         if (SceneManager.GetActiveScene().name != "TempMainMenu")
         {
             Time.timeScale = 1.0f;
-            Debug.Log(Time.timeScale);
         }
         
         confirmationWindow.SetActive(false);

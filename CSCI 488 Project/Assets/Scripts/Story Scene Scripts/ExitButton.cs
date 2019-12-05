@@ -16,7 +16,6 @@ public class ExitButton : MonoBehaviour
     public void ExitScene()
     {
         Time.timeScale = 0.0f;
-        Debug.Log(Time.timeScale);
 
         screenShade.SetActive(true);
         confirmationMenu.SetActive(true);
