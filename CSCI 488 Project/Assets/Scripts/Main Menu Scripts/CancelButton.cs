@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CancelButton : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class CancelButton : MonoBehaviour
 
     public void Cancel()
     {
+        if (SceneManager.GetActiveScene().name != "TempMainMenu")
+        {
+            Time.timeScale = 1.0f;
+            Debug.Log(Time.timeScale);
+        }
+        
         confirmationWindow.SetActive(false);
         screenShade.SetActive(false);
     }
